@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>convertor</title>
+    </head>
+    <body>
+        <input type="text" id="number" />
+        <input type="submit" value="convert" id="convertButton" />
+        <div id="result"></div>
+
+        <script src="script.js"></script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Decimal to Binary Converter</title>
+        <style>
+            /* General Reset */
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            /* Centering the content */
+            body,
+            html {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f5f5f5;
+            }
+
+            /* Container styling */
+            .converter-container {
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 350px;
+                text-align: center;
+            }
+
+            /* Heading styling */
+            .converter-container h1 {
+                color: #333333;
+                margin-bottom: 20px;
+            }
+
+            /* Input field styling */
+            #number {
+                width: 100%;
+                padding: 10px;
+                font-size: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                transition: all 0.3s;
+            }
+
+            #number:focus {
+                border-color: #007acc;
+                outline: none;
+                box-shadow: 0px 0px 6px 0px #6981912b;
+            }
+
+            /* Button styling */
+            #convertButton {
+                padding: 10px 15px;
+                background-color: #007acc;
+                color: #ffffff;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            #convertButton:hover {
+                background-color: #005f99;
+            }
+
+            /* Result styling */
+            #result {
+                margin-top: 20px;
+                font-size: 1.2rem;
+                color: #333333;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="converter-container">
+            <h1>Decimal to Binary</h1>
+            <input
+                type="text"
+                id="number"
+                placeholder="Enter a decimal number"
+            />
+            <button id="convertButton">Convert to Binary</button>
+            <div id="result"></div>
+        </div>
+
+        <script>
+            document
+                .getElementById("convertButton")
+                .addEventListener("click", convert);
+
+            function convert() {
+                let number = parseInt(document.getElementById("number").value); // Convert to integer
+                if (isNaN(number)) {
+                    document.getElementById("result").innerText =
+                        "Please enter a valid number";
+                    return;
+                }
+
+                let binary = "";
+                while (number > 0) {
+                    let remainder = number % 2;
+                    binary = remainder + binary;
+                    number = Math.floor(number / 2);
+                }
+
+                document.getElementById("result").innerText = binary || "0"; // Show result, handle 0 case
+            }
+        </script>
+    </body>
+</html>
